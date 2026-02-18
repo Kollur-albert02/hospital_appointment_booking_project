@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment History</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #e0ecff, #f9fbff);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .table-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #1e3a8a;
+            color: white;
+        }
+
+        th, td {
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: #f1f6ff;
+        }
+
+        th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.6px;
+        }
+
+        .empty {
+            padding: 25px;
+            text-align: center;
+            color: #555;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 22px;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #162d6a;
+        }
+
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 15px;
+                background: white;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            }
+
+            td {
+                text-align: left;
+                padding: 8px 0;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: bold;
+                color: #1e3a8a;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Your Appointment History</h2>
+
+    <div class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Condition</th>
+                   
+                </tr>
+            </thead>
+
+            
+        <tbody>
+        {% if appointment %}
+        <tr>
+         <td data-label="#">1</td>
+         <td data-label="Patient Name">{{ appointment.patient_name }}</td>
+         <td data-label="Age">{{ appointment.age }}</td>
+         <td data-label="Phone">{{ appointment.phone }}</td>
+         <td data-label="Condition">{{ appointment.health_condition }}</td>
+         
+        </tr>
+{% else %}
+    <tr>
+        <td colspan="6" class="empty">No appointment history found</td>
+    </tr>
+{% endif %}
+</tbody>
+
+        </table>
+    </div>
+
+    <div class="btn-container">
+        <a href="/" class="btn">⬅ Back to Main Page</a>
+    </div>
+</div>
+
+</body>
+</html>
