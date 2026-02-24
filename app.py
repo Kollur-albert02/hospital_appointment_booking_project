@@ -86,11 +86,11 @@ def book_appointment():
         otp = random.randint(100000, 999999)
         session["otp"] = str(otp)
 
-        print("OTP (Demo):", otp)
+        return f"Your OTP is {otp}"D
 
-        return redirect(url_for("verify_otp"))
+        #return redirect(url_for("verify_otp"))
 
-    return render_template("book.html")
+    #return render_template("book.html")
 
 
 # ---------------- OTP VERIFICATION ----------------
@@ -152,3 +152,4 @@ def history():
 # ---------------- RUN SERVER ----------------
 if __name__ == "__main__":
     app.run(debug=True)
+
