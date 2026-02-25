@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Care Hospital</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* LEFT SIDE */
+        .left-section {
+            width: 50%;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f4f9ff;
+        }
+
+        .logo-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+        .logo {
+            width: 70px;
+            margin-right: 15px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #1f3c88;
+        }
+
+        .quote {
+            font-size: 20px;
+            margin: 25px 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* BUTTON */
+        .btn {
+            width: fit-content;
+            padding: 14px 28px;
+            background-color: #1f3c88;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #163172;
+        }
+
+        /* RIGHT SIDE */
+        .right-section {
+            width: 50%;
+        }
+
+        .side-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left-section">
+
+        <div class="logo-title">
+            <img src="{{ url_for('static', filename='download.jpg') }}" class="logo">
+            <h1>Health Care</h1>
+        </div>
+
+        <p class="quote">
+            <b><i>Your health is our priority —</i></b><br>
+            <b><i>caring today for a healthier tomorrow.</i></b>
+        </p>
+
+        <a href="/schedule" class="btn">
+            Schedule Appointment
+        </a>
+
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="right-section">
+        <img src="{{ url_for('static', filename='hospital.jpg') }}" class="side-image">
+    </div>
+
+</div>
+
+</body>
+</html>
